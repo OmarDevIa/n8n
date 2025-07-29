@@ -6,12 +6,11 @@
     "node": ">=22.16",
     "pnpm": ">=10.2.1"
   },
-"packageManager": "yarn@1.22.22",
-
+  "packageManager": "pnpm@10.2.1",
   "scripts": {
     "prepare": "node scripts/prepare.mjs",
     "preinstall": "node scripts/block-npm-install.js",
-    "build": "turbo run build",
+    "build": "NODE_OPTIONS='--max-old-space-size=2048' turbo run build",
     "build:backend": "turbo run build:backend",
     "build:frontend": "turbo run build:frontend",
     "build:nodes": "turbo run build:nodes",
@@ -87,9 +86,7 @@
     "zx": "^8.1.4"
   },
   "pnpm": {
-    "onlyBuiltDependencies": [
-      "sqlite3"
-    ],
+    "onlyBuiltDependencies": ["sqlite3"],
     "overrides": {
       "@azure/identity": "^4.3.0",
       "@types/node": "^20.17.50",
@@ -123,10 +120,4 @@
       "element-plus@2.4.3": "patches/element-plus@2.4.3.patch",
       "js-base64": "patches/js-base64.patch",
       "ics": "patches/ics.patch",
-      "minifaker": "patches/minifaker.patch",
-      "z-vue-scan": "patches/z-vue-scan.patch",
-      "@lezer/highlight": "patches/@lezer__highlight.patch",
-      "v-code-diff": "patches/v-code-diff.patch"
-    }
-  }
-}
+      "minif
